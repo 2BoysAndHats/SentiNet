@@ -1,7 +1,9 @@
 """
 person_reid.py
 
-Trains the person reidentification model, and implements rank-n testing.
+Conor Browne
+
+Trains the person reidentification model, and implements rank-n testing. Needs the training / test data to be preprocessed before hand (run person_reid_preprocessing.py)
 """
 
 import keras

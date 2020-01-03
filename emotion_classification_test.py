@@ -1,8 +1,11 @@
 """
 emotion_classification_test.py
 
-Tests the emotion classification model.
+Conor Browne
+
+Tests the emotion classification model generated in emotion_classification_train.py (computes accuracy on the train and test sets of the EWalk dataset)
 """
+
 
 import numpy as np
 from keras.models import load_model

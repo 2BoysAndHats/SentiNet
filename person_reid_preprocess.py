@@ -1,9 +1,12 @@
 """
 person_reid_preprocess.py
 
+Conor Browne
+
 Takes in the Market-1501 dataset, and combines all the images into a numpy file by pedestrian (each gets their own ID)
-Also removes all distractor and junk images (for now?)
+Also removes all distractor and junk images (we don’t need them)
 """
+
 
 import glob
 import cv2

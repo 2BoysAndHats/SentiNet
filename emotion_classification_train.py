@@ -1,7 +1,9 @@
 """
 emotion_classification_train.py
 
-Preprocessed the EWalk dataset, and trains the emotion classification model.
+Conor Browne
+
+This file takes in the  EWalk dataset, preprocesses it by resizing and normalizing the frames, and then trains and saves the emotion classification model.
 """
 
 import numpy as np
