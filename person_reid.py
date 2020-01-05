@@ -85,7 +85,7 @@ def make_train_model():
     optimizer = Adam(lr = 0.00006)
     model.compile(loss="binary_crossentropy", metrics = ['acc'], optimizer=optimizer)
 
-    return model
+    return model, feature_net
 
 def make_test_model():
     feature_input_l = Input(shape = (8192,))
@@ -96,7 +96,7 @@ def make_test_model():
 
     return Model(inputs = [feature_input_l, feature_input_r], outputs = dense_output)
 
-def extract_features (data):
+def extract_features (data, feature_net):
     pedestrian_features = []
     for ped in data:
         features = feature_net.predict(np.array(ped))
@@ -143,7 +143,7 @@ if __name__ == "__main__":
 
 
     print ("Loading model ... ", end = "")
-    model = make_train_model()
+    model, feature_net = make_train_model()
     print ("model loaded!")
 
     print (model.summary())
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     print ("Start testing. Preprocessing test features ... ", end = "")
     # preprocess our test features - we're going to be using them a lot
     # so it makes sense just to pass them through the featurenet once
-    test_features = extract_features(test)
+    test_features = extract_features(test, feature_net)
     print ("extracted.")
 
     # extract a test model - just the train model without the featurenet (we don't need it any more)
