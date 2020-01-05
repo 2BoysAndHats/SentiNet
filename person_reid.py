@@ -87,7 +87,7 @@ def make_train_model():
 
     return model, feature_net
 
-def make_test_model():
+def make_test_model(model):
     feature_input_l = Input(shape = (8192,))
     feature_input_r = Input(shape = (8192,))
 
@@ -165,7 +165,7 @@ if __name__ == "__main__":
 
     # extract a test model - just the train model without the featurenet (we don't need it any more)
     print ("Making test model ... ", end = "")
-    test_model = make_test_model()
+    test_model = make_test_model(model)
     print ("model extracted.")
 
     print ("Begin accuracy testing:")
